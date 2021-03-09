@@ -1,0 +1,71 @@
+# SYNTAX TEST "source.gemfile-lock" "complete"
+
+PATH
+# <---- keyword.control.section.gemfile-lock
+  remote: path
+# ^^^^^^^ meta.property-name.gemfile-lock
+#         ^^^^ string.gemfile-lock
+  specs:
+# ^^^^^^ meta.property-name.gemfile-lock
+    foo_bar (0.0.11)
+#   ^^^^^^^ entity.package.gemfile-lock
+#           ^ punctuation.parenthesis.begin.gemfile-lock
+#            ^^^^^^ constant.numeric.gemfile-lock
+#                  ^ punctuation.parenthesis.end.gemfile-lock
+
+GIT
+# <--- keyword.control.section.gemfile-lock
+  remote: https://github.com/hmarr/example.git
+# ^^^^^^^ meta.property-name.gemfile-lock
+#         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ string.gemfile-lock
+  revision: fc9d4b87e5c06741efa356ee9859653068c7553d
+# ^^^^^^^^^ meta.property-name.gemfile-lock
+#           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ string.gemfile-lock
+  specs:
+# ^^^^^^ meta.property-name.gemfile-lock
+    bar_baz (2.2.0)
+#   ^^^^^^^ entity.package.gemfile-lock
+#           ^ punctuation.parenthesis.begin.gemfile-lock
+#            ^^^^^ constant.numeric.gemfile-lock
+#                 ^ punctuation.parenthesis.end.gemfile-lock
+
+GEM
+# <--- keyword.control.section.gemfile-lock
+  remote: https://rubygems.org/
+# ^^^^^^^ meta.property-name.gemfile-lock
+#         ^^^^^^^^^^^^^^^^^^^^^ string.gemfile-lock
+  specs:
+# ^^^^^^ meta.property-name.gemfile-lock
+    gem-a
+#   ^^^^^ entity.package.gemfile-lock
+    gem-b (1.0.0-java)
+#   ^^^^^ entity.package.gemfile-lock
+#         ^ punctuation.parenthesis.begin.gemfile-lock
+#          ^^^^^^^^^^ constant.numeric.gemfile-lock
+#                    ^ punctuation.parenthesis.end.gemfile-lock
+      subdep_a (~> 1.0, <= 1.2.3.4)
+#     ^^^^^^^^ entity.package.gemfile-lock
+#              ^ punctuation.parenthesis.begin.gemfile-lock
+#               ^^ keyword.operator.comparison.gemfile-lock
+#                  ^^^ constant.numeric.gemfile-lock
+#                     ^ punctuation.separator.gemfile-lock
+#                       ^^ keyword.operator.comparison.gemfile-lock
+#                          ^^^^^^^ constant.numeric.gemfile-lock
+#                                 ^ punctuation.parenthesis.end.gemfile-lock
+
+DEPENDENCIES
+# <------------ keyword.control.section.gemfile-lock
+  gem-b (~> 1.0.0)
+# ^^^^^ entity.package.gemfile-lock
+#       ^ punctuation.parenthesis.begin.gemfile-lock
+#        ^^ keyword.operator.comparison.gemfile-lock
+#           ^^^^^ constant.numeric.gemfile-lock
+#                ^ punctuation.parenthesis.end.gemfile-lock
+  foo_bar!
+# ^^^^^^^ entity.package.gemfile-lock
+
+
+BUNDLED WITH
+# <------------ keyword.control.section.gemfile-lock
+   2.3.0.dev
+#  ^^^^^^^^^ string.gemfile-lock

@@ -1,0 +1,105 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Gemfile.lock",
+  "patterns": [
+    { "include": "#dependencies-sections" },
+    { "include": "#other-sections" }
+  ],
+  "repository": {
+    "dependencies-sections": {
+      "name": "section.gemfile-lock",
+      "begin": "^(GEM|PATH|GIT|DEPENDENCIES)$",
+      "beginCaptures": {
+        "0": {
+          "name": "keyword.control.section.gemfile-lock"
+        }
+      },
+      "end": "^$",
+      "patterns": [
+        { "include": "#entries" },
+        { "include": "#dependency-specs" }
+      ]
+    },
+    "other-sections": {
+      "name": "section.gemfile-lock",
+      "begin": "^[A-Z ]+$",
+      "beginCaptures": {
+        "0": {
+          "name": "keyword.control.section.gemfile-lock"
+        }
+      },
+      "end": "^$",
+      "patterns": [
+        {
+          "match": "^\\s+(.*)$",
+          "captures": {
+            "1": {
+              "name": "string.gemfile-lock"
+            }
+          }
+        }
+      ]
+    },
+    "entries": {
+      "patterns": [
+        {
+          "name": "entry.gemfile-lock",
+          "match": "^ +([a-z]+:) ?(.*)$",
+          "captures": {
+            "1": {
+              "name": "meta.property-name.gemfile-lock"
+            },
+            "2": {
+              "name": "string.gemfile-lock"
+            }
+          }
+        }
+      ]
+    },
+    "dependency-specs": {
+      "patterns": [
+        {
+          "name": "dependency.gemfile-lock",
+          "begin": "^ {2,6}([^ !]+)\\s*(\\()?",
+          "beginCaptures": {
+            "1": {
+              "name": "entity.package.gemfile-lock"
+            },
+            "2": {
+              "name": "punctuation.parenthesis.begin.gemfile-lock"
+            }
+          },
+          "end": "($|\\))",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.parenthesis.end.gemfile-lock"
+            }
+          },
+          "patterns": [
+            { "include": "#versions" }
+          ]
+        }
+      ]
+    },
+    "versions": {
+      "patterns": [
+        {
+          "name": "version.gemfile-lock",
+          "match": "(?:(<=|>=|=|~>|<|>|!=) )?([0-9A-Za-z_\\-\\.]+)(,)?",
+          "captures": {
+            "1": {
+              "name": "keyword.operator.comparison.gemfile-lock"
+            },
+            "2": {
+              "name": "constant.numeric.gemfile-lock"
+            },
+            "3": {
+              "name": "punctuation.separator.gemfile-lock"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "scopeName": "source.gemfile-lock"
+}
