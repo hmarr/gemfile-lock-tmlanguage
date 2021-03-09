@@ -1,0 +1,45 @@
+{
+  "name": "gemfile-lock-tmlanguage",
+  "displayName": "Gemfile.lock",
+  "description": "TextMate grammar for Gemfile.lock files",
+  "version": "0.1.0",
+  "publisher": "hmarr",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hmarr/gemfile-lock-tmlanguage"
+  },
+  "scripts": {
+    "test": "vscode-tmgrammar-test -s source.gemfile-lock -t 'syntaxes/tests/*.test.Gemfile.lock' -g syntaxes/gemfile-lock.tmLanguage.json"
+  },
+  "engines": {
+    "vscode": "^1.44.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "gemfile-lock",
+        "aliases": [
+          "Gemfile.lock"
+        ],
+        "extensions": [
+          "Gemfile.lock"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "gemfile-lock",
+        "scopeName": "source.gemfile-lock",
+        "path": "./syntaxes/gemfile-lock.tmLanguage.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "vscode-tmgrammar-test": "0.0.10"
+  }
+}
